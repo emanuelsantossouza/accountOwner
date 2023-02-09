@@ -1,0 +1,14 @@
+/* Entra na pasta do backend*/
+cd backend
+
+/*Criar uma solução Net*/
+dotnet new sln --name AccountOwenrServer
+
+/*Criar o projeto API*/
+dotnet new webapi -n AccountOwenerServer -f net6.0 -lang "c#"
+
+/* Ver tudo o que o c# pode fazer */
+dotnet -- list
+
+/*adicionar o projeto API na solução*/
+dotnet sln add AccountOwenerServer\AccountOwenerServer.csproj
