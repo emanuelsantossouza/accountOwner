@@ -1,11 +1,18 @@
+using NLog;
 using AccountOwenerServer.Extensions;
 using Microsoft.AspNetCore.HttpOverrides;
 
 var builder = WebApplication.CreateBuilder(args);
 
+LogManager.LoadConfiguration(string.Concat(
+    Directory.GetCurrentDirectory(),
+    "/nlog.config"
+));
+
 // Add services to the container.
 builder.Services.ConfigureCors();
 builder.Services.ConfigureIISIntegration();
+builder.Services.ConfigureLoggerService();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -21,13 +28,13 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-else 
+else
     app.UseHsts();
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
-app.UseForwardedHeaders(new ForwardedHeadersOptions  // tratar as requisições de forma correta
+app.UseForwardedHeaders(new ForwardedHeadersOptions
 {
     ForwardedHeaders = ForwardedHeaders.All
 });

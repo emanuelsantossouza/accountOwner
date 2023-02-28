@@ -1,7 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Contracts;
+using LoggerService;
 
 
 // xerife-- essa classe é que manda no controle da api
@@ -26,6 +24,11 @@ namespace AccountOwenerServer.Extensions
         {
             services.Configure<IISOptions>(options =>
             {});
+        }
+
+        public static void ConfigureLoggerService(this IServiceCollection services)
+        {  
+          services.AddSingleton<ILoggerManager, LoggerManager>();
         }
     }
 }
