@@ -13,6 +13,7 @@ LogManager.LoadConfiguration(string.Concat(
 builder.Services.ConfigureCors();
 builder.Services.ConfigureIISIntegration();
 builder.Services.ConfigureLoggerService();
+builder.Services.ConfigureMySQLContext(builder.Configuration);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

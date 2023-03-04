@@ -1,10 +1,12 @@
 using Contracts;
 using LoggerService;
+using Entities;
+using Microsoft.EntityFrameworkCore;
 
 
 // xerife-- essa classe é que manda no controle da api
-namespace AccountOwenerServer.Extensions
-{
+namespace AccountOwenerServer.Extensions;
+
     public static class ServiceExtensions /*Se o metodo for estatico a classe precisa ser estatica!!!*/
     {
         public static void ConfigureCors(this IServiceCollection services)
@@ -30,5 +32,12 @@ namespace AccountOwenerServer.Extensions
         {  
           services.AddSingleton<ILoggerManager, LoggerManager>();
         }
+
+        public static void ConfigureMySQLContext(this IServiceCollection services, IConfiguration config)
+        {
+            var conn = config["mysqlconnection:connectionString"];
+            services.AddDbContext<RepositoryContext>(
+                o => o.UseMySql(conn, ServerVersion.AutoDetect(conn))
+            );
+        }
     }
-}

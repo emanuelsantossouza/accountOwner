@@ -12,3 +12,12 @@ dotnet -- list
 
 /*adicionar o projeto API na solução*/
 dotnet sln add AccountOwenerServer\AccountOwenerServer.csproj
+
+
+dotnet new classlib --name Entities -f net6.0
+dotnet sln add Entities\Entities.csproj
+dotnet add AccountOwnerServer\AccountOwnerServer.csproj reference Entities\Entities.csproj
+
+Pomelo
+cd 
+dotnet add package Pomelo.EntityFrameworkCore.MySql --version 6.0.2
