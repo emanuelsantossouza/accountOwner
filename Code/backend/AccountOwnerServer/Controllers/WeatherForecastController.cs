@@ -19,7 +19,7 @@ public class WeatherForecastController : ControllerBase
     {
         var domesticAccount = _repository.Account
             .FindByCondition(x => x.AccountType.Equals("Domestic"));
-        var owners = _repository.Owner.FindaAll();
+        var owners = _repository.Owner.FindAll();
         return new string[] { "Value1", "Value2"};
     }
    
