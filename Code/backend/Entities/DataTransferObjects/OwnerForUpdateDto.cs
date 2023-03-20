@@ -8,7 +8,7 @@ public class OwnerForUpdateDto
     public string Name { get; set; }
 
     [Required(ErrorMessage = "Campo Obrigatório: Data de Nascimento")]
-    public DataTime DateOfBirth { get; set; }
+    public DateTime DateOfBirth { get; set; }
 
     [Required(ErrorMessage = "Campo Obrigatório: Endereço")]
     [StringLength(60, ErrorMessage = "O Endereço não pode ter mais de 100 caracteres")]

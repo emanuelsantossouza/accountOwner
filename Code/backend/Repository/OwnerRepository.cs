@@ -38,4 +38,8 @@ public class OwnerRepository : RepositoryBase<Owner>, IOwnerRepository
     {
         Update(owner);
     }
+    public void DeleteOwner(Owner owner)
+    {
+        Delete(owner);
+    }
 }
