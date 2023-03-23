@@ -5,8 +5,8 @@ namespace Entities.Models
 {
     public class Account
     {
-        [Key]
-        public Guid AccountId { get; set; }
+        [Column("AccountId")]
+        public Guid Id { get; set; }
 
         [Required]
         public DateTime DateCreated { get; set; }

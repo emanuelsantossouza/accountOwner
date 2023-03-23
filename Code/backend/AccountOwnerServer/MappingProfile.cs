@@ -4,7 +4,7 @@ using Entities.Models;
 
 namespace AccountOwnerServer;
 
-public class MappingProfile 
+public class MappingProfile : Profile
 {
     public MappingProfile()
     {
@@ -12,7 +12,7 @@ public class MappingProfile
 
         CreateMap<Account, AccountDto>();
 
-        Create<OwnerForCreationDto, Owner>();
+        CreateMap<OwnerForCreationDto, Owner>();
 
         CreateMap<OwnerForCreationDto, Owner>();
     }

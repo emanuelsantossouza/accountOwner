@@ -6,8 +6,8 @@ namespace Entities.Models;
 [Table("owner")]
  public class Owner
 {
-  [Key] //chave primaria
-    public Guid OwnerId { get; set; }
+  [Column("OwnerId")] 
+    public Guid Id { get; set; }
 
     [Required] // (ErrorMessage = "Digite a porra do Nome")]
     [StringLength(60)]
