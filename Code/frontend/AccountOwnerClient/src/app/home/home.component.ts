@@ -11,6 +11,8 @@ export class HomeComponent implements OnInit{
 
   constructor(){}
 
+
+  // Lazy load
   ngOnInit(): void{
     this.homeText = "Bem Vindo a Aplicaçãp Account-Owner";
   }
