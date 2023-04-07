@@ -7,12 +7,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './menu/menu.component';
 import { CollapseModule} from 'ngx-bootstrap/collapse';
+import { NotFoundComponent } from './error-pages/not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    MenuComponent
+    MenuComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
