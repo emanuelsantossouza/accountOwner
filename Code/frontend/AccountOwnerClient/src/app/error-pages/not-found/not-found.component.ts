@@ -12,3 +12,4 @@ export class NotFoundComponent {
 
   ngOnInit():void{}
 }
+
