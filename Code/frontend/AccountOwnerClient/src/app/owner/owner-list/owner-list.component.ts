@@ -1,6 +1,9 @@
 import { OwnerRepositoryService } from 'src/app/shared/services/owner-repository.service';
 import { Owner } from './../../_interfaces/owner.model';
 import { Component } from '@angular/core';
+import { ErrorHandlerService } from 'src/app/shared/services/error-handler.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-owner-list',
@@ -9,8 +12,9 @@ import { Component } from '@angular/core';
 })
 export class OwnerListComponent {
   owners: Owner[];
+  errorMessage: string = '';
 
-  constructor(private repository: OwnerRepositoryService) { }
+  constructor(private repository: OwnerRepositoryService, private errorHandles: ErrorHandlerService, private router: Router) { }
 
   ngOnInit(): void {
     this.getAllOwners();
@@ -18,9 +22,18 @@ export class OwnerListComponent {
 
   private getAllOwners = () => {
     const apiAddress: string = 'api/owner';
-    this.repository.getOwners(apiAddress).subscribe(own => {
-      this.owners = own;
+    this.repository.getOwners(apiAddress).subscribe({
+      next: (own: Owner[]) => this.owners = own,
+      error: (err: HttpErrorResponse) => {
+        this.errorHandles.handleError(err);
+        this.errorMessage = this.errorHandles.errorMessage;
+      }
     })
+  }
+
+  public getOwnerDetails = (id) => {
+    const detailsUrl: string = `/owner/details/${id}`;
+    this.router.navigate([detailsUrl]);
   }
 
 }

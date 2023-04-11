@@ -10,8 +10,8 @@ export class OwnerRepositoryService {
 
   constructor(private http: HttpClient, private envUrl: EnvironmentUrlService) { }
 
-  public getOwners = (route: string) => {
-    return this.http.get<Owner[]>(this.createCompleteRoute(route, this.envUrl.urlAddress));
+  public getOwner = (route: string) => {
+    return this.http.get<Owner>(this.createCompleteRoute(route, this.envUrl.urlAddress));
   }
 
   public createOwner = (route: string, owner: Owner) => {

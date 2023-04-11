@@ -20,7 +20,7 @@
             <td>{{owner.name}}</td>
             <td>{{owner.address}}</td>
             <td>{{owner.dateOfBirth | date: 'dd/MM/yyyy'}}</td>
-            <td><button type="button" id="details" class="btn btn-primary"> Details
+            <td><button type="button" id="details" class="btn btn-primary" (click)="getOwnerDetails(owner.id)">Details
               </button>
             </td>
             <td><button type="button" id="update" class="btn btn-success"> Update
