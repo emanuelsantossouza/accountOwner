@@ -18,7 +18,7 @@ namespace Entities.Models;
 
     [Required]
     [StringLength(100)]
-    public string? Adress { get; set; }
+    public string? Address { get; set; }
 
     public ICollection<Account>? Accounts { get; set; } // Relacionamento de 1 para muitos
 }

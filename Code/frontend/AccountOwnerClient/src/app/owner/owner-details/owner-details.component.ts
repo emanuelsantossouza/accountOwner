@@ -12,14 +12,16 @@ import { ErrorHandlerService } from './../../shared/services/error-handler.servi
 export class OwnerDetailsComponent implements OnInit {
   owner: Owner;
   errorMessage: string = '';
-  constructor(private repository: OwnerRepositoryService, private router: Router,
-    private activeRoute: ActivatedRoute, private errorHandler: ErrorHandlerService) { }
+  constructor(private repository: OwnerRepositoryService, private router: Router, private activeRoute: ActivatedRoute, private errorHandler: ErrorHandlerService) { }
+
   ngOnInit() {
     this.getOwnerDetails()
   }
+
   getOwnerDetails = () => {
     const id: string = this.activeRoute.snapshot.params['id'];
     const apiUrl: string = `api/owner/${id}/account`;
+
     this.repository.getOwner(apiUrl)
       .subscribe({
         next: (own: Owner) => this.owner = own,
