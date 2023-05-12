@@ -11,6 +11,9 @@ import { CollapseModule} from 'ngx-bootstrap/collapse';
 import { NotFoundComponent } from './error-pages/not-found/not-found.component';
 import { OwnerModule } from './owner/owner.module';
 import { InternalServerComponent } from './error-pages/internal-server/internal-server.component';
+import { DatePipe } from '@angular/common';
+import { SuccessModalComponent } from './shared/modals/success-modal/success-modal.component';
+import { ErrorModalComponent } from './shared/modals/error-modal/error-modal.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,9 @@ import { InternalServerComponent } from './error-pages/internal-server/internal-
     HomeComponent,
     MenuComponent,
     NotFoundComponent,
-    InternalServerComponent
+    InternalServerComponent,
+    SuccessModalComponent,
+    ErrorModalComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +33,7 @@ import { InternalServerComponent } from './error-pages/internal-server/internal-
     CollapseModule.forRoot(),
     OwnerModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

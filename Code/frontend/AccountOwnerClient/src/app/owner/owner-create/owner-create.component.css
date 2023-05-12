@@ -1,0 +1,8 @@
+em {
+color: #e71515;
+font-weight: bold;
+}
+
+.ng-invalid.ng-touched {
+border-color: red;
+}

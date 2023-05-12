@@ -20,7 +20,7 @@
       <strong>Type of user:</strong>
     </div>
     <div class="col-md-3">
-      <span class="text-success">Beginner user.</span>
+      <span [appAppend]="owner" class="text-success">Beginner user.</span>
     </div>
   </div>
   <ng-template #advancedUser>
@@ -29,28 +29,9 @@
         <strong>Type of user:</strong>
       </div>
       <div class="col-md-3">
-        <span class="text-info">Advanced user.</span>
+        <span [appAppend]="owner" class="text-success">Beginner user.</span>
       </div>
     </div>
   </ng-template>
 </div>
-<div class="row">
-  <div class="col-md-12">
-    <div class="table-responsive">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Account type</th>
-            <th>Date created</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let account of owner?.accounts">
-            <td>{{account?.accountType}}</td>
-            <td>{{account?.dateCreated | date: 'dd/MM/yyyy'}}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
+<app-owner-accounts [accounts]="owner?.accounts" (onAccountClick)="printToConsole($event)"></app-owner-accounts>

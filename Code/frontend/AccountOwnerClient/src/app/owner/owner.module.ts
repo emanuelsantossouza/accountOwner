@@ -9,19 +9,26 @@ import { OwnerCreateComponent } from './owner-create/owner-create.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { OwnerAccountsComponent } from './owner-details/owner-accounts/owner-accounts.component';
+import { SharedModule } from '../shared/shared.module';
+import { OwnerUpdateComponent } from './owner-update/owner-update.component';
 
 
 @NgModule({
   declarations: [
     OwnerListComponent,
     OwnerDetailsComponent,
-    OwnerCreateComponent
+    OwnerCreateComponent,
+    OwnerAccountsComponent,
+    OwnerUpdateComponent
+    
   ],
   imports: [
     CommonModule,
     OwnerRoutingModule,
     ReactiveFormsModule,
-    BsDatepickerModule.forRoot()
+    BsDatepickerModule.forRoot(),
+    SharedModule
 
   ]
 })

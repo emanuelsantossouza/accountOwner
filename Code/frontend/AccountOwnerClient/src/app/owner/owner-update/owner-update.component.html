@@ -1,11 +1,5 @@
-<div class="row">
-  <div class="offset-10 col-md-2 mt-2">
-    <a [routerLink]="'/owner/create'"> Create owner</a>
-  </div>
-</div>
-
 <div class="container-fluid">
-  <form [formGroup]="ownerForm" autocomplete="off" novalidate (ngSubmit)="createOwner(ownerForm.value)">
+  <form [formGroup]="ownerForm" autocomplete="off" novalidate (ngSubmit)="updateOwner(ownerForm.value)">
     <div class="card card-body bg-light mb-2 mt-2">
       <div class="row mb-3">
         <label for="name" class="col-form-label col-md-2">Name of the owner: </label>
@@ -34,7 +28,7 @@
           <input type="text" formControlName="address" id="address" class="form-control" />
         </div>
         <div class="col-md-5">
-          <em *ngIf="validateControl('address') && hasError('address', 'required')">Address is required</em>
+          <em *ngIf="validateControl('address')&& hasError('address', 'required')">Address is required</em>
           <em *ngIf="validateControl('address') && hasError('address', 'maxlength')">Maximum allowed length is 100 characters.</em>
         </div>
       </div>
